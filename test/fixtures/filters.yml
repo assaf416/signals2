@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  name: MyString
+  price_conditions: MyText
+  volume_conditions: MyText
+  fundamental_conditions: MyText
+  pattern_conditions: MyText
+  indicator_conditions: MyText
+  email_notification: MyString
+
+two:
+  user_id: 1
+  name: MyString
+  price_conditions: MyText
+  volume_conditions: MyText
+  fundamental_conditions: MyText
+  pattern_conditions: MyText
+  indicator_conditions: MyText
+  email_notification: MyString

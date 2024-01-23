@@ -1,0 +1,123 @@
+<% @page_header = "Ticker info" %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class='card'> 
+      <!-- Add the bg color to the header using any of the bg-* classes -->
+      <div class='card-header'>
+        <br/>
+        <br/>
+        <i class="fas fa-user-circle fa-3x"></i>
+        <h3 class="">@account.ib_account_id  </h3>
+        <h5 class="widget-user-desc">@account.account_type</h5>
+        <button class="btn btn-warning"> <i class="fa fa-phone"></i> </button>
+        <%= link_to raw("<i class='fa fa-calendar'></i> "), "", :class => "btn btn-success followup-dialog"  %>
+        <!-- Tickets -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-info"><i class="fa fa-envelope"></i> </button>
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          &nbsp;
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <div class="row">
+          
+                      
+              
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header text-bold"><%= @ticker.symbol %></h5>
+                  <span class="description-text">Symbol </span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+                                  
+              
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header text-bold"><%= @ticker.name %></h5>
+                  <span class="description-text">Name </span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+                                  
+              
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header text-bold"><%= @ticker.market %></h5>
+                  <span class="description-text">Market </span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+                                                                                                                                                                                                                                                          </div>
+        <br/>
+        <br/>
+        <!-- /.row -->
+      </div>
+      <div class="card-footer">
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Symbol <span class="pull-right"> <%= @ticker.symbol %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Name <span class="pull-right"> <%= @ticker.name %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Market <span class="pull-right"> <%= @ticker.market %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Last price <span class="pull-right"> <%= @ticker.last_price %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Last price at <span class="pull-right"> <%= @ticker.last_price_at %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Last change percent <span class="pull-right"> <%= @ticker.last_change_percent %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Ask size <span class="pull-right"> <%= @ticker.ask_size %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Bid size <span class="pull-right"> <%= @ticker.bid_size %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Ask price <span class="pull-right"> <%= @ticker.ask_price %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Bid price <span class="pull-right"> <%= @ticker.bid_price %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Sector <span class="pull-right"> <%= @ticker.sector %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Industry <span class="pull-right"> <%= @ticker.industry %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Kind <span class="pull-right"> <%= @ticker.kind %></span></a></li>
+          </ul>
+              </div>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="card">
+      <div class=card-body">
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#notes" data-toggle="tab">Notes</a></li>
+            <li><a href="#info" data-toggle="tab">Info </a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+            </div>
+            <div class="tab-pane" id="trades">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

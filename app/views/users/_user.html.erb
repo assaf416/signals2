@@ -1,0 +1,21 @@
+<div id="<%= dom_id user %>">
+  <p>
+    <strong>Name:</strong>
+    <%= user.name %>
+  </p>
+
+  <p>
+    <strong>Phone no:</strong>
+    <%= user.phone_no %>
+  </p>
+
+  <p>
+    <strong>Kind:</strong>
+    <%= user.kind %>
+  </p>
+
+  <p>
+    <%= image_tag user.avatar.url if user.avatar.attached? %>
+  </p>
+
+</div>

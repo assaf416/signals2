@@ -1,0 +1,82 @@
+<% @page_header =  "Tickers "%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class='card'>
+      <div class='card-header'>
+        <div class='card-title'>
+          <h6>
+            <i class= "fas fa-home"></i>
+            <%= "Tickers" %>
+          </h6>
+        </div>
+      </div>
+      <div class='card-body scrollable'>
+        <table class="table table-condensed table-striped datatable">
+          <thead>
+            <tr>
+                              <th><%= "Symbol"  %></th>
+                              <th><%= "Name"  %></th>
+                              <th><%= "Market"  %></th>
+                              <th><%= "Last price"  %></th>
+                              <th><%= "Last price at"  %></th>
+                              <th><%= "Last change percent"  %></th>
+                              <th><%= "Ask size"  %></th>
+                              <th><%= "Bid size"  %></th>
+                              <th><%= "Ask price"  %></th>
+                              <th><%= "Bid price"  %></th>
+                              <th><%= "Sector"  %></th>
+                              <th><%= "Industry"  %></th>
+                              <th><%= "Kind"  %></th>
+                            <th class='actions-th' ></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @tickers.each do |ticker| %>
+            <tr>
+                              <td><%= ticker.symbol %></td>
+                              <td><%= ticker.name %></td>
+                              <td><%= ticker.market %></td>
+                              <td><%= ticker.last_price %></td>
+                              <td><%= ticker.last_price_at %></td>
+                              <td><%= ticker.last_change_percent %></td>
+                              <td><%= ticker.ask_size %></td>
+                              <td><%= ticker.bid_size %></td>
+                              <td><%= ticker.ask_price %></td>
+                              <td><%= ticker.bid_price %></td>
+                              <td><%= ticker.sector %></td>
+                              <td><%= ticker.industry %></td>
+                              <td><%= ticker.kind %></td>
+                            <td class="text-end">
+                <div class="dropdown">
+                  <a href="#" class="text-body" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="ph-list"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" style="">
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-chart-line me-2"></i>
+                      View statement
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-pencil me-2"></i>
+                      Edit campaign
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-lock-key me-2"></i>
+                      Disable campaign
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-gear me-2"></i>
+                      Settings
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

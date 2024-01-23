@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div class="col-lg-6">
+    <div class='card'>
+      <div class='card-header'>
+        <div class='card-title'>
+          <h6> TITLE </h6>
+        </div>
+      </div>
+      <div class='card-body'>
+        
+        <%= simple_form_for(@ticker) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-inputs">
+            <%= f.input :symbol %>
+            <%= f.input :name %>
+            <%= f.input :market %>
+            <%= f.input :last_price %>
+            <%= f.input :last_price_at %>
+            <%= f.input :last_change_percent %>
+            <%= f.input :ask_size %>
+            <%= f.input :bid_size %>
+            <%= f.input :ask_price %>
+            <%= f.input :bid_price %>
+            <%= f.input :sector %>
+            <%= f.input :industry %>
+            <%= f.input :kind %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+        <% end %>
+      </div>
+    </div>

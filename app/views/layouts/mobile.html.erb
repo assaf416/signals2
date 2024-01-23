@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    >
+    <title>דלור ניהול תיקים</title>
+    <meta
+      name="viewport"
+      content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    >
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="apple-touch-icon" href="assets/dalore-logo-square.ico"/>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="<%= asset_path 'favicon/apple-touch-icon.png' %>"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="<%= asset_path 'favicon/favicon-32x32.png' %>"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="<%= asset_path 'favicon/favicon-16x16.png' %>"
+    >
+    <link
+      rel="mask-icon"
+      href="<%= asset_path 'favicon/safari-pinned-tab.svg' %>"
+      color="#202125"
+    >
+    <link rel="shortcut icon" href="<%= asset_path 'favicon/favicon.ico' %>">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#202125">
+
+    <script src="https://kit.fontawesome.com/02d4d4b7a0.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta
+      name="viewport"
+      content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <script type='text/javascript' charset='utf-8'>
+      // Hides mobile browser's address bar when page is done loading.
+        window.addEventListener('load', function(e) { 
+          setTimeout(function() { window.scrollTo(0, 1); }, 1);
+        }, false);
+    </script>
+    <%= yield :head %>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"
+      integrity="sha512-3PRVLmoBYuBDbCEojg5qdmd9UhkPiyoczSFYjnLhFb2KAFsWWEMlAPt0olX1Nv7zGhDfhGEVkXsu51a55nlYmw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+     <script src="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/index.min.js"></script>
+    <%#= render 'application/favicon' %>
+  </head>
+  <body>
+    <%= render "/layouts/mobile_topbar" %>
+
+    <br/>
+    <!-- Page content -->
+    <div class="page-content-mobile pt-0">
+      <!-- Main content -->
+      <div class="content-wrapper pt-0 ">
+        <!-- Content area -->
+        <div class="content bg-white" style="padding:0.2em">
+          <%= yield %>
+        </div>
+        <!-- /content area -->
+      </div>
+      <!-- /main content -->
+      <%#= render "layouts/second_sidebar" %>
+    </div>
+    <!-- /page content -->
+    <%= yield :footer %>
+    <style>
+      .text-muted-small{
+          font-size:13px;
+          color: gray
+      }
+
+      .scrollable{
+          overflow-y: scroll;
+          height:800px;
+          /* padding-right:1em; */
+      }
+
+      .actions-box{
+          height:40px;
+          background-color:#f1f1f1;
+          font-size:13px;
+          padding-left :2em;
+          padding-top:1em;
+      }
+      .page-mobile-content{
+
+          position: relative;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          padding: var(--spacer) 0.1rem;
+      }
+      body{
+        background-color:#fff;
+      }
+      mobile.page{
+        margin:1em;
+
+    }
+
+    </style>
+  </body>
+</html>
+
+

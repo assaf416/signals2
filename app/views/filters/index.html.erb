@@ -1,0 +1,72 @@
+<% @page_header =  "Filters "%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class='card'>
+      <div class='card-header'>
+        <div class='card-title'>
+          <h6>
+            <i class= "fas fa-home"></i>
+            <%= "Filters" %>
+          </h6>
+        </div>
+      </div>
+      <div class='card-body scrollable'>
+        <table class="table table-condensed table-striped datatable">
+          <thead>
+            <tr>
+                              <th><%= "User"  %></th>
+                              <th><%= "Name"  %></th>
+                              <th><%= "Price conditions"  %></th>
+                              <th><%= "Volume conditions"  %></th>
+                              <th><%= "Fundamental conditions"  %></th>
+                              <th><%= "Pattern conditions"  %></th>
+                              <th><%= "Indicator conditions"  %></th>
+                              <th><%= "Email notification"  %></th>
+                            <th class='actions-th' ></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @filters.each do |filter| %>
+            <tr>
+                              <td><%= filter.user_id %></td>
+                              <td><%= filter.name %></td>
+                              <td><%= filter.price_conditions %></td>
+                              <td><%= filter.volume_conditions %></td>
+                              <td><%= filter.fundamental_conditions %></td>
+                              <td><%= filter.pattern_conditions %></td>
+                              <td><%= filter.indicator_conditions %></td>
+                              <td><%= filter.email_notification %></td>
+                            <td class="text-end">
+                <div class="dropdown">
+                  <a href="#" class="text-body" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="ph-list"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" style="">
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-chart-line me-2"></i>
+                      View statement
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-pencil me-2"></i>
+                      Edit campaign
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-lock-key me-2"></i>
+                      Disable campaign
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-gear me-2"></i>
+                      Settings
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

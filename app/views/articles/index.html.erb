@@ -1,0 +1,66 @@
+<% @page_header =  "Articles "%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class='card'>
+      <div class='card-header'>
+        <div class='card-title'>
+          <h6>
+            <i class= "fas fa-home"></i>
+            <%= "Articles" %>
+          </h6>
+        </div>
+      </div>
+      <div class='card-body scrollable'>
+        <table class="table table-condensed table-striped datatable">
+          <thead>
+            <tr>
+                              <th><%= "Feed"  %></th>
+                              <th><%= "Title"  %></th>
+                              <th><%= "Message"  %></th>
+                              <th><%= "Guid"  %></th>
+                              <th><%= "Symbol"  %></th>
+                            <th class='actions-th' ></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @articles.each do |article| %>
+            <tr>
+                              <td><%= article.feed_id %></td>
+                              <td><%= article.title %></td>
+                              <td><%= article.message %></td>
+                              <td><%= article.guid %></td>
+                              <td><%= article.symbol %></td>
+                            <td class="text-end">
+                <div class="dropdown">
+                  <a href="#" class="text-body" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="ph-list"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" style="">
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-chart-line me-2"></i>
+                      View statement
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-pencil me-2"></i>
+                      Edit campaign
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-lock-key me-2"></i>
+                      Disable campaign
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                      <i class="ph-gear me-2"></i>
+                      Settings
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

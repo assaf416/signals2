@@ -1,0 +1,141 @@
+<!-- Main navbar -->
+<div class="navbar navbar-dark navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="d-flex d-lg-none">
+      <a
+        href="#"
+        class="navbar-nav-link align-items-center rounded p-1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </a>
+    </div>
+    <div class="navbar-brand flex-1 flex-lg-0 d-none d-sm-flex">
+      <a href="/funds" class="d-inline-flex align-items-center">
+        <img src="/assets/signals-logo.png" alt="" style="height:40px">
+      </a>
+    </div>
+    <div class="d-lg-none">
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbar-mobile"
+        aria-expanded="false"
+      >
+        <i class="ph-squares-four"></i>
+      </button>
+    </div>
+    <div
+      class="navbar-collapse order-2 order-lg-1 collapse"
+      id="navbar-mobile"
+      style=""
+    >
+      <ul class="navbar-nav mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a href="/home/today" class="navbar-nav-link rounded">
+            ראשי
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="/home/stocks" class="navbar-nav-link rounded">
+            מניות
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="/home/indexes" class="navbar-nav-link rounded">
+            מדדים
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/home/news" class="navbar-nav-link rounded">
+            חדשות
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="/home/technicals" class="navbar-nav-link rounded">
+            טכני
+          </a>
+        </li>
+         <li class="nav-item">
+          <a href="/home/patterns" class="navbar-nav-link rounded">
+            תבניות
+          </a>
+        </li>
+        </li>
+         <li class="nav-item">
+          <a href="/home/filters" class="navbar-nav-link rounded">
+            פילטרים
+          </a>
+        </li>
+        </li>
+         <li class="nav-item">
+          <a href="/home/signals" class="navbar-nav-link rounded">
+            התראות
+          </a>
+        </li>
+        
+      </ul>
+      <ul class="nav gap-sm-2 order-1 order-lg-2 ms-auto">
+        <li class="nav-item">
+          <form action="/search" method="get">
+            <div class="input-icon">
+              <input
+                id="search"
+                type="text"
+                value=""
+                class="form-control"
+                placeholder="חיפוש"
+                aria-label="Search in website"
+              >
+              </div>
+            </form>
+            <script type="text/javascript">
+              $(document).ready(function() {
+              $('#search').keydown(function(e) {
+              	if (e.which === 13) {
+              		window.location = "/portal/search?q="+ $('#search').val();
+              	return false;
+              	}
+              });
+              });
+            </script>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav gap-sm-2 order-1 order-lg-2 ms-auto">
+        <li class="nav-item">
+          <a href="/imports/new" class="navbar-nav-link navbar-nav-link-icon ">
+            <i class="fa fa-upload"></i>
+          </a>
+        </li>
+        <li class="nav-item nav-item-dropdown-lg dropdown">
+          <a
+          href="#"
+          class="navbar-nav-link align-items-center rounded p-1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+            <div class="status-indicator-container">
+              <img src="/assets/user.jpg" class="w-32px h-32px rounded" alt="">
+              <span class="status-indicator bg-success"></span>
+            </div>
+            <span class="d-none d-lg-inline-block mx-lg-2"><%= current_user.name %></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end">
+            <a href="#" class="dropdown-item">
+              <i class="fa fa-user-circle"></i>
+              &nbsp; פרופיל</a>
+            <%= link_to raw("<i class='fa-solid fa-person-walking-dashed-line-arrow-right'></i> &nbsp; יציאה") , "/users/#{current_user.id}/logout", method: :get , :class => "dropdown-item"%>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /main navbar -->
+  <script type="text/javascript">
+    $(".sidebar-end-toggle").on('click', function(event){
+        $("#right-sidebar").toggleClass("sidebar-expand-lg");
+    });
+  </script>

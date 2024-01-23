@@ -1,0 +1,108 @@
+<% @page_header = "Filter info" %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class='card'> 
+      <!-- Add the bg color to the header using any of the bg-* classes -->
+      <div class='card-header'>
+        <br/>
+        <br/>
+        <i class="fas fa-user-circle fa-3x"></i>
+        <h3 class="">@account.ib_account_id  </h3>
+        <h5 class="widget-user-desc">@account.account_type</h5>
+        <button class="btn btn-warning"> <i class="fa fa-phone"></i> </button>
+        <%= link_to raw("<i class='fa fa-calendar'></i> "), "", :class => "btn btn-success followup-dialog"  %>
+        <!-- Tickets -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-info"><i class="fa fa-envelope"></i> </button>
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          &nbsp;
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <div class="row">
+          
+                      
+              
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header text-bold"><%= @filter.user_id %></h5>
+                  <span class="description-text">User </span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+                                  
+              
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header text-bold"><%= @filter.name %></h5>
+                  <span class="description-text">Name </span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+                                  
+              
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header text-bold"><%= @filter.price_conditions %></h5>
+                  <span class="description-text">Price conditions </span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+                                                                                                                                            </div>
+        <br/>
+        <br/>
+        <!-- /.row -->
+      </div>
+      <div class="card-footer">
+                  <ul class="nav nav-stacked">
+            <li><a href="#">User <span class="pull-right"> <%= @filter.user_id %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Name <span class="pull-right"> <%= @filter.name %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Price conditions <span class="pull-right"> <%= @filter.price_conditions %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Volume conditions <span class="pull-right"> <%= @filter.volume_conditions %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Fundamental conditions <span class="pull-right"> <%= @filter.fundamental_conditions %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Pattern conditions <span class="pull-right"> <%= @filter.pattern_conditions %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Indicator conditions <span class="pull-right"> <%= @filter.indicator_conditions %></span></a></li>
+          </ul>
+                  <ul class="nav nav-stacked">
+            <li><a href="#">Email notification <span class="pull-right"> <%= @filter.email_notification %></span></a></li>
+          </ul>
+              </div>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="card">
+      <div class=card-body">
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#notes" data-toggle="tab">Notes</a></li>
+            <li><a href="#info" data-toggle="tab">Info </a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+            </div>
+            <div class="tab-pane" id="trades">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

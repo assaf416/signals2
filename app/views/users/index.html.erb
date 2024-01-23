@@ -1,0 +1,31 @@
+<div class='row'>
+  <div class='col-lg-12'>
+    <div class='card'>
+      <div class='card-header'>
+        <div class='card-title'>
+          <h6> TITLE </h6>
+        </div>
+      </div>
+      <div class='card-body'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th> שם </th>
+              <th> מייל </th>
+              <th> תפקיד </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for u in User.all do %>
+              <tr>
+                <td> <%= link_to u.name , "/users/#{u.id}/edit"%> </td>
+                <td> <%= u.email%> </td>
+                <td> <%= u.kind%> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

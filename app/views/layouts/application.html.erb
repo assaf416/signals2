@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title> סיגנלס</title>
+      <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+      <%= javascript_include_tag "https://www.google.com/jsapi" %>
+      <script src="https://kit.fontawesome.com/02d4d4b7a0.js" crossorigin="anonymous"></script>
+      <!-- FULL CALENDAR -->
+      <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.min.js" ></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" >
+      <!-- APEXCHARTS -->
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <script src='https://meet.jit.si/external_api.js'></script>
+      <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <%= yield :head %>
+      <script src="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/index.min.js"></script>
+      <%= render 'application/favicon' %>
+      <meta name="msapplication-TileColor" content="#da532c">
+      <meta name="theme-color" content="#1b95e0">
+      <!-- DATATABLE -->
+      <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js" ></script>
+      <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js" ></script>
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css" >
+    </head>
+    <style>
+    .dataTables_filter{
+      float:left;
+      text-align:left;
+    }
+    </style>
+    <body>
+      <script>
+      </script>
+      <%= render "/layouts/topbars"  if user_signed_in? %>
+      <%= yield :topbar %>
+      <!-- Page content -->
+      <div class="page-content pt-0">
+        <!-- Main content -->
+        <div class="content-wrapper">
+          <!-- Content area -->
+          <div class="content scrollable">
+            <%= yield %>
+          </div>
+          <!-- /content area -->
+        </div>
+        <!-- /main content -->
+      </div>
+      <!-- /page content --> <!-- Footer -->
+      <!-- /footer -->
+      <style>
+        .scrollable{
+             overflow-y: scroll;
+             height:600px;
+          }
+          th{
+            text-align:right;
+          }
+      </style>
+      <script>
+        var  wh = Number($(document).height()) + 600
+        console.log("HEIGHT:" + wh);
+        $(".scrollable").css("hight", wh);
+      </script>
+    </body>
+  </html>

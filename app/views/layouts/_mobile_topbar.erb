@@ -1,0 +1,126 @@
+<!-- Main navbar -->
+<div class="navbar navbar-dark">
+  <div class="container-fluid">
+    <div class="d-flex d-lg-none">
+      <a
+        href="#"
+        class="navbar-nav-link align-items-center rounded p-1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </a>
+
+      <div class="dropdown-menu dropdown-menu">
+        <a href="/mobile/home" class="dropdown-item">
+          <i class="fa fa-home"></i>
+          &nbsp; ראשי</a>
+        <a href="/mobile/funds" class="dropdown-item">
+          <i class="fa fa-bank"></i>
+          &nbsp; קרנות </a>
+        <a href="/mobile/accounts" class="dropdown-item">
+          <i class="fa fa-briefcase"></i>
+          &nbsp; חשבונות </a>
+
+        
+        <a href="/users/1/logout" class="dropdown-item">
+          <i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i>&nbsp; יציאה</a>
+      </div>
+
+    </div>
+
+    <div class="d-lg-none">
+      <%= @page_header %>
+      &nbsp;  דלור פיננסים
+    </div>
+
+    <div
+      class="navbar-collapse order-2 order-lg-1 collapse"
+      id="navbar-mobile"
+      style=""
+    >
+      <ul class="nav gap-sm-2 order-1 order-lg-2 ms-auto">
+        <li class="nav-item">
+          <form action="." method="get">
+            <div class="input-icon">
+
+              <input
+                id="search"
+                type="text"
+                value=""
+                class="form-control"
+                placeholder="Search…"
+                aria-label="Search in website"
+              >
+            </div>
+          </form>
+
+          <script type="text/javascript">
+					$(document).ready(function() {
+					$('#search').keydown(function(e) {
+						if (e.which === 13) {
+							window.location = "/portal/search?q="+ $('#search').val();
+						return false;
+						}
+					});
+					});
+          </script>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="nav gap-sm-2 sms-auto justify-content-end">
+      <li class="nav-item">
+        <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded">
+          <i class="fa fa-bell"></i>
+          <span
+            class="
+              badge
+              bg-yellow
+              text-black
+              position-absolute
+              top-0
+              end-0
+              translate-middle-top
+              zindex-1
+              rounded-pill
+              mt-1
+              me-1
+            "
+          >2</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded">
+          <i class="ph-chats"></i>
+        </a>
+      </li>
+      <li class="nav-item nav-item-dropdown-lg dropdown ">
+        <a
+          href="#"
+          class="navbar-nav-link align-items-center rounded p-1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <div class="status-indicator-container">
+            <img src="/assets/user.jpg" class="w-32px h-32px rounded" alt="">
+            <span class="status-indicator bg-success"></span>
+          </div>
+          <span class="d-none d-lg-inline-block mx-lg-2"><%= "Assaf" %></span>
+        </a>
+
+        <div class="dropdown-menu ">
+          <a href="/mobile/profile" class="dropdown-item">
+            <i class="fa fa-user-circle"></i>
+            &nbsp; פרופיל</a>
+          <div class="dropdown-divider"></div>
+          <a href="/mobile/watchlist" class="dropdown-item">
+            <i class="fa fa-eye"></i>
+            &nbsp; הגדרות</a>
+            <%= link_to raw("<i class='fa-solid fa-person-walking-dashed-line-arrow-right'></i> &nbsp; יציאה") , "/users/#{current_user.id}/logout", method: :get , :class => "dropdown-item"%>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<%= yield :page_top %>

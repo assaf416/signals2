@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  name: MyString
+  market: MyString
+  last_price: 1.5
+  last_price_at: 2024-01-23 19:14:00
+  last_change_percent: 1.5
+  ask_size: 1.5
+  bid_size: 1.5
+  ask_price: 1.5
+  bid_price: 1.5
+  sector: MyString
+  industry: MyString
+  kind: MyString
+
+two:
+  symbol: MyString
+  name: MyString
+  market: MyString
+  last_price: 1.5
+  last_price_at: 2024-01-23 19:14:00
+  last_change_percent: 1.5
+  ask_size: 1.5
+  bid_size: 1.5
+  ask_price: 1.5
+  bid_price: 1.5
+  sector: MyString
+  industry: MyString
+  kind: MyString

@@ -1,0 +1,72 @@
+<%% @page_header = "<%= singular_table_name.titleize %> info" %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class='card'> 
+      <!-- Add the bg color to the header using any of the bg-* classes -->
+      <div class='card-header'>
+        <br/>
+        <br/>
+        <i class="fas fa-user-circle fa-3x"></i>
+        <h3 class=""><%= "@account.ib_account_id" %>  </h3>
+        <h5 class="widget-user-desc"><%= "@account.account_type" %></h5>
+        <button class="btn btn-warning"> <i class="fa fa-phone"></i> </button>
+        <%%= link_to raw("<i class='fa fa-calendar'></i> "), "", :class => "btn btn-success followup-dialog"  %>
+        <!-- Tickets -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-info"><i class="fa fa-envelope"></i> </button>
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          &nbsp;
+        </div>
+      </div>
+      <div class="card-footer text-center">
+        <div class="row">
+          <% i = 0 %>
+          <% attributes.each do |attribute| -%>
+            <% if i < 3  %>
+              <% i = i + 1 %>
+              <div class="col-sm-4">
+                <div class="description-block">
+                  <h5 class="description-header text-bold"><%%= @<%= singular_table_name %>.<%= attribute.name %> %></h5>
+                  <span class="description-text"><%=attribute.human_name %> </span>
+                </div>
+                <!-- /.description-block -->
+              </div>
+              <!-- /.col -->
+            <% end  -%>
+          <% end  -%>
+        </div>
+        <br/>
+        <br/>
+        <!-- /.row -->
+      </div>
+      <div class="card-footer">
+        <% attributes.each do |attribute| -%>
+          <ul class="nav nav-stacked">
+            <li><a href="#"><%=attribute.human_name %> <span class="pull-right"> <%%= @<%= singular_table_name %>.<%= attribute.name %> %></span></a></li>
+          </ul>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="card">
+      <div class=card-body">
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#notes" data-toggle="tab">Notes</a></li>
+            <li><a href="#info" data-toggle="tab">Info </a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+            </div>
+            <div class="tab-pane" id="trades">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
