@@ -57,22 +57,37 @@ class Ticker < ApplicationRecord
     end 
 
 
+
+    def self.feedzira_yahoo_for_symbol(symbol)
+      list = []
+      url = "http://feeds.finance.yahoo.com/rss/2.0/headline?s='#{symbol}'&region=US&lang=en-US"
+      xml = HTTParty.get(url,{headers: {'User-agent': 'Mozilla/5.0'}}).body
+      Feedjira.parse(xml).entries.each do |entry|
+        list << entry
+      end
+      list
+    end 
+
     def self.yahoo_headlines
         list = []
-        xml = HTTParty.get("https://finance.yahoo.com/news/rssindex").body # if your xml is in the 'data.xml' file
+        xml = HTTParty.get("https://finance.yahoo.com/news/rssindex",{:headers => {'User-agent': 'Mozilla/5.0'} }).body # if your xml is in the 'data.xml' file
         res = Hash.from_xml(xml)
         res
       end
 
       def self.yahoo_news_for_symbol(symbol)
         list = []
-        xml = HTTParty.get("https://feeds.finance.yahoo.com/rss/2.0/headline?s=#{symbol}&region=US&lang=en-US").body
-        begin
-          res = Hash.from_xml(xml)
+        xml = HTTParty.get("https://feeds.finance.yahoo.com/rss/2.0/headline?s=#{symbol}&region=US&lang=en-US",
+        {
+          headers: {'User-agent': 'Mozilla/5.0'}
+         }).body
+         puts xml.inspect
+        # begin
+          res = Hash.from_xml(xml.gsub("\n",""))
           res
-        rescue 
-          xml
-        end 
+        # rescue 
+        #   xml
+        # end 
       end
     
 end
