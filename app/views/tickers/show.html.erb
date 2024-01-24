@@ -105,18 +105,20 @@
   <div class="col-lg-8">
     <div class="card">
       <div class=card-body">
-        <div class="nav-tabs-custom">
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#notes" data-toggle="tab">Notes</a></li>
-            <li><a href="#info" data-toggle="tab">Info </a></li>
-          </ul>
-          <div class="tab-content">
-            <div class="active tab-pane" id="activity">
-            </div>
-            <div class="tab-pane" id="trades">
-            </div>
-          </div>
-        </div>
+       <pre>
+        <%= @ticker.info%>
+        </pre>
+        <hr/>
+       <pre>
+        <%= @ticker.news%>
+        </pre>
+        <hr/>
+       <pre>
+        <%= @ticker.daily_candles%>
+        </pre>
+       <pre>
+        <%= @ticker.m1_candles%>
+        </pre>
       </div>
     </div>
   </div>

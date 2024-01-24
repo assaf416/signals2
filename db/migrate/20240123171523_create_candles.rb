@@ -9,6 +9,12 @@ class CreateCandles < ActiveRecord::Migration[7.0]
       t.float :low
       t.float :close
       t.float :volume
+      t.float :wvap
+      t.float :avg_vol_50
+      t.float :avg_vol_100
+      t.float :avg_vol_300
+      t.float :rsi
+      t.float :macd
 
       t.timestamps
     end

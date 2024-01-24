@@ -70,6 +70,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.float "low"
     t.float "close"
     t.float "volume"
+    t.float "wvap"
+    t.float "avg_vol_50"
+    t.float "avg_vol_100"
+    t.float "avg_vol_300"
+    t.float "rsi"
+    t.float "macd"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["size"], name: "index_candles_on_size"
@@ -118,7 +124,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
 
   create_table "tickers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "symbol"
+    t.string "exchange"
     t.string "name"
+    t.text "description"
     t.string "market"
     t.float "last_price"
     t.datetime "last_price_at"
@@ -130,8 +138,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.string "sector"
     t.string "industry"
     t.string "kind"
+    t.date "next_report_date"
+    t.text "info"
+    t.text "news"
+    t.text "daily_candles"
+    t.text "m1_candles"
+    t.text "m5_candles"
+    t.text "d1_candles"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["exchange"], name: "index_tickers_on_exchange"
     t.index ["industry"], name: "index_tickers_on_industry"
     t.index ["kind"], name: "index_tickers_on_kind"
     t.index ["last_price_at"], name: "index_tickers_on_last_price_at"

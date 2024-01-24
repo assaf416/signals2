@@ -33,7 +33,7 @@
           <tbody>
             <% @tickers.each do |ticker| %>
             <tr>
-                              <td><%= ticker.symbol %></td>
+                              <td><%= link_to ticker.symbol, ticker %></td>
                               <td><%= ticker.name %></td>
                               <td><%= ticker.market %></td>
                               <td><%= ticker.last_price %></td>

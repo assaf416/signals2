@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'mobile/home'
+  get 'mobile/tickers'
+  get 'mobile/ticker'
   resources :companies
   resources :feeds
   resources :articles
