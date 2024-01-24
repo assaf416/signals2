@@ -1,12 +1,17 @@
 
-default: &default
-  adapter: mysql2
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 15 } %>
-  username: root
-  #password: clipper123
-  #socket: /var/run/mysqld/mysqld.sock
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8mb4
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 15 } %>
+#   username: root
+#   #password: clipper123
+#   #socket: /var/run/mysqld/mysqld.sock
 
+# development:
+#   <<: *default
+#   database: signals
 development:
-  <<: *default
-  database: signals
+   adapter: sqlite3
+   database: db/development.sqlite3
+   pool: 5
+   timeout: 5000

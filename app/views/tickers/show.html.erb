@@ -104,9 +104,20 @@
   </div>
   <div class="col-lg-8">
     <div class="card">
-      <div class=card-body">
+      <div class="card-body">
        <pre>
-        <%= @ticker.info%>
+        <% json_res = JSON.parse(@ticker.ticker_info)%>
+          <% for k ,v in json_res do %>
+            <%= k %> : <%= v %> <br/>
+          <% end %>
+        </pre>
+        <hr/>
+       <pre>
+       <pre>
+        <% json_res = JSON.parse(@ticker.info) %>
+          <% for k ,v in json_res do %>
+            <%= k %> : <%= v %> <br/>
+          <% end %>
         </pre>
         <hr/>
        <pre>

@@ -7,7 +7,7 @@ class Ticker < ApplicationRecord
     def self.load_market 
         for item in  Ticker.polygon_tickers do
             symbol = item["ticker"]
-            t=  Ticker.find_by_symbol(symbol)
+            t =  Ticker.find_by_symbol(symbol)
             t = Ticker.create(:symbol => symbol , :name => item["name"], :kind => item["type"]) if t.nil?
             m1_candles = Ticker.polygon_1_min_candles_for_symbol_in_date(t.symbol,(Time.now - 1.day).strftime("%Y-%m-%d"))
             m5_candles = Ticker.polygon_5_min_candles_for_symbol_in_date(t.symbol,(Time.now - 1.day).strftime("%Y-%m-%d"))
@@ -16,6 +16,7 @@ class Ticker < ApplicationRecord
             t.m5_candles = m5_candles.to_json
             t.news = news.to_json
             t.info = Ticker.polygon_ticker_info(t.symbol).to_json 
+            t.ticker_info = item.to_json 
             t.save
         end 
     end     

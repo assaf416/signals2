@@ -15,8 +15,11 @@ class CreateTickers < ActiveRecord::Migration[7.0]
       t.float :bid_price
       t.string :sector
       t.string :industry
+      t.float :market_cap
+      t.integer :employees
       t.string :kind
       t.date :next_report_date
+      t.text :ticker_info
       t.text :info
       t.text :news
       t.text :daily_candles

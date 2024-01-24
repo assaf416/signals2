@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,21 +33,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_data", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_data", force: :cascade do |t|
     t.string "key", null: false
-    t.binary "io", size: :medium, null: false
+    t.binary "io", limit: 10485760, null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_data_on_key"
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_variant_records", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.integer "feed_id"
     t.string "title"
     t.text "message"
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["title"], name: "index_articles_on_title"
   end
 
-  create_table "candles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "candles", force: :cascade do |t|
     t.string "ticker"
     t.string "size"
     t.datetime "candle_time"
@@ -82,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["ticker"], name: "index_candles_on_ticker"
   end
 
-  create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string "uid"
     t.string "name"
     t.string "symbol"
@@ -99,7 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["uid"], name: "index_companies_on_uid"
   end
 
-  create_table "feeds", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "feeds", force: :cascade do |t|
     t.string "name"
     t.string "url"
     t.datetime "created_at", null: false
@@ -107,7 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["url"], name: "index_feeds_on_url"
   end
 
-  create_table "filters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "filters", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
     t.text "price_conditions"
@@ -122,7 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["user_id"], name: "index_filters_on_user_id"
   end
 
-  create_table "tickers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tickers", force: :cascade do |t|
     t.string "symbol"
     t.string "exchange"
     t.string "name"
@@ -137,8 +137,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.float "bid_price"
     t.string "sector"
     t.string "industry"
+    t.float "market_cap"
+    t.integer "employees"
     t.string "kind"
     t.date "next_report_date"
+    t.text "ticker_info"
     t.text "info"
     t.text "news"
     t.text "daily_candles"
@@ -157,7 +160,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.index ["symbol"], name: "index_tickers_on_symbol"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "phone_no"
     t.string "kind"
