@@ -18,6 +18,12 @@ class Ticker < ApplicationRecord
             t.info = Ticker.polygon_ticker_info(t.symbol).to_json 
             t.ticker_info = item.to_json 
             t.save
+
+              fundamentals = Ticker.eod_fundamentals_for_symbol(symbol)
+              unless fundamentals.nil?
+                t.eod_fundamentals = fundamentals.to_json
+                t.save
+              end 
         end 
     end     
 
@@ -82,13 +88,26 @@ class Ticker < ApplicationRecord
         {
           headers: {'User-agent': 'Mozilla/5.0'}
          }).body
-         puts xml.inspect
-        # begin
           res = Hash.from_xml(xml.gsub("\n",""))
           res
-        # rescue 
-        #   xml
-        # end 
+          $redis.hset("SIGNALS-YAHOO-NEWS", symbol , res.to_json)
       end
-    
+      
+      def self.eod_fundamentals_for_symbol(symbol)
+        begin
+          res = HTTParty.get("https://eodhistoricaldata.com/api/fundamentals/#{symbol}?api_token=64aac9f30d75c8.56064258&fmt=json").body
+          jres = JSON.parse(res)
+          $redis.hset("SIGNIALS-EOD-FUNDAMENTAL",symbol,jres.to_json)
+          ticker = Ticker.find_by_symbol(symbol)
+          ticker.exchange = jres["General"]["Exchange"]
+          ticker.country = jres["General"]["CountryName"]
+          ticker.sector = jres["General"]["Sector"]
+          ticker.industry = jres["General"]["Industry"]
+          ticker.description = jres["General"]["Description"]
+          ticker.save
+          return jres
+        rescue 
+          nil
+        end 
+      end
 end

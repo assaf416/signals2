@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'feed/index'
+  get 'feed/chat'
+  get 'feed/calendar'
+  get 'feed/home'
+  get 'feed/meeting'
   get 'mobile/home'
   get 'mobile/tickers'
   get 'mobile/ticker'

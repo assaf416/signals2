@@ -1,20 +1,30 @@
 <% @page_header = "Ticker info" %>
 <div class="row">
   <div class="col-lg-4">
-    <div class='card'> 
+    <div class='card'>
       <!-- Add the bg color to the header using any of the bg-* classes -->
       <div class='card-header'>
         <br/>
         <br/>
         <i class="fas fa-user-circle fa-3x"></i>
-        <h3 class="">@account.ib_account_id  </h3>
+        <h3 class="">@account.ib_account_id
+        </h3>
         <h5 class="widget-user-desc">@account.account_type</h5>
-        <button class="btn btn-warning"> <i class="fa fa-phone"></i> </button>
-        <%= link_to raw("<i class='fa fa-calendar'></i> "), "", :class => "btn btn-success followup-dialog"  %>
+        <button class="btn btn-warning">
+          <i class="fa fa-phone"></i>
+        </button>
+        <%= link_to raw("<i class='fa fa-calendar'></i> "),
+        "",
+        class: "btn btn-success followup-dialog" %>
         <!-- Tickets -->
         <div class="btn-group">
-          <button type="button" class="btn btn-info"><i class="fa fa-envelope"></i> </button>
-          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+          <button type="button" class="btn btn-info"><i class="fa fa-envelope"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-success dropdown-toggle"
+            data-toggle="dropdown"
+          >
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
           </button>
@@ -23,112 +33,162 @@
       </div>
       <div class="card-footer text-center">
         <div class="row">
-          
-                      
-              
-              <div class="col-sm-4">
-                <div class="description-block">
-                  <h5 class="description-header text-bold"><%= @ticker.symbol %></h5>
-                  <span class="description-text">Symbol </span>
-                </div>
-                <!-- /.description-block -->
-              </div>
-              <!-- /.col -->
-                                  
-              
-              <div class="col-sm-4">
-                <div class="description-block">
-                  <h5 class="description-header text-bold"><%= @ticker.name %></h5>
-                  <span class="description-text">Name </span>
-                </div>
-                <!-- /.description-block -->
-              </div>
-              <!-- /.col -->
-                                  
-              
-              <div class="col-sm-4">
-                <div class="description-block">
-                  <h5 class="description-header text-bold"><%= @ticker.market %></h5>
-                  <span class="description-text">Market </span>
-                </div>
-                <!-- /.description-block -->
-              </div>
-              <!-- /.col -->
-                                                                                                                                                                                                                                                          </div>
+
+          <div class="col-sm-4">
+            <div class="description-block">
+              <h5 class="description-header text-bold"><%= @ticker.symbol %></h5>
+              <span class="description-text">Symbol
+              </span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+
+          <!-- /.col -->
+          <div class="col-sm-4">
+            <div class="description-block">
+              <h5 class="description-header text-bold"><%= @ticker.name %></h5>
+              <span class="description-text">Name
+              </span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+
+          <!-- /.col -->
+          <div class="col-sm-4">
+            <div class="description-block">
+              <h5 class="description-header text-bold"><%= @ticker.market %></h5>
+              <span class="description-text">Market
+              </span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+        </div>
         <br/>
         <br/>
         <!-- /.row -->
       </div>
       <div class="card-footer">
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Symbol <span class="pull-right"> <%= @ticker.symbol %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Name <span class="pull-right"> <%= @ticker.name %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Market <span class="pull-right"> <%= @ticker.market %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Last price <span class="pull-right"> <%= @ticker.last_price %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Last price at <span class="pull-right"> <%= @ticker.last_price_at %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Last change percent <span class="pull-right"> <%= @ticker.last_change_percent %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Ask size <span class="pull-right"> <%= @ticker.ask_size %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Bid size <span class="pull-right"> <%= @ticker.bid_size %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Ask price <span class="pull-right"> <%= @ticker.ask_price %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Bid price <span class="pull-right"> <%= @ticker.bid_price %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Sector <span class="pull-right"> <%= @ticker.sector %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Industry <span class="pull-right"> <%= @ticker.industry %></span></a></li>
-          </ul>
-                  <ul class="nav nav-stacked">
-            <li><a href="#">Kind <span class="pull-right"> <%= @ticker.kind %></span></a></li>
-          </ul>
-              </div>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Symbol
+              <span class="pull-right">
+                <%= @ticker.symbol %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Name
+              <span class="pull-right">
+                <%= @ticker.name %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Market
+              <span class="pull-right">
+                <%= @ticker.market %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Last price
+              <span class="pull-right">
+                <%= @ticker.last_price %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Last price at
+              <span class="pull-right">
+                <%= @ticker.last_price_at %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Last change percent
+              <span class="pull-right">
+                <%= @ticker.last_change_percent %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Ask size
+              <span class="pull-right">
+                <%= @ticker.ask_size %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Bid size
+              <span class="pull-right">
+                <%= @ticker.bid_size %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Ask price
+              <span class="pull-right">
+                <%= @ticker.ask_price %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Bid price
+              <span class="pull-right">
+                <%= @ticker.bid_price %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Sector
+              <span class="pull-right">
+                <%= @ticker.sector %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Industry
+              <span class="pull-right">
+                <%= @ticker.industry %></span></a></li>
+        </ul>
+        <ul class="nav nav-stacked">
+          <li><a href="#">Kind
+              <span class="pull-right">
+                <%= @ticker.kind %></span></a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-lg-8">
     <div class="card">
       <div class="card-body">
-       <pre>
-        <% json_res = JSON.parse(@ticker.ticker_info)%>
-          <% for k ,v in json_res do %>
-            <%= k %> : <%= v %> <br/>
+        <h3>FUNDAMENTALS:</h3>
+        <pre>
+          <% for k ,v in @fundamentals do %>
+            <%= k %>
+            :
+            <%= v %>
+            <br/>
           <% end %>
         </pre>
         <hr/>
-       <pre>
-       <pre>
-        <% json_res = JSON.parse(@ticker.info) %>
-          <% for k ,v in json_res do %>
-            <%= k %> : <%= v %> <br/>
+        <h3>NEWS</h3>
+        <pre>
+          <% for k ,v in @news do %>
+            <%= k %>
+            :
+            <%= v %>
+            <br/>
           <% end %>
         </pre>
         <hr/>
-       <pre>
-        <%= @ticker.news%>
+        <h3>FUNDAMENTALS (EOD)</h3>
+        <pre>
+          <% json_res = JSON.parse(@ticker.eod_fundamentals) %>
+          <% for k ,v in json_res do %>
+            <%= k %>
+            :
+            <%= v %>
+            <br/>
+          <% end %>
         </pre>
         <hr/>
-       <pre>
-        <%= @ticker.daily_candles%>
+        <h3>NEWS</h3>
+        <pre>
+          <% jnews = JSON.parse(@ticker.news)
+          items = jnews["rss"]["channel"]["item"] %>
+          <% for i in items do %>
+            <%= i["title"] %><br/>
+            <%= i["pubDate"] %><br/>
+            <%= i["description"] %>
+          <% end %>
         </pre>
-       <pre>
-        <%= @ticker.m1_candles%>
+        <hr/>
+        <h3>DAILY CANDLES</h3>
+        <pre>
+          <%= @ticker.daily_candles %>
+        </pre>
+        <pre>
+          <h3>1M Candles</h3>
+          <%= @ticker.m1_candles %>
         </pre>
       </div>
     </div>

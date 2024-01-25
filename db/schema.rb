@@ -144,6 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.text "ticker_info"
     t.text "info"
     t.text "news"
+    t.text "eod_fundamentals"
     t.text "daily_candles"
     t.text "m1_candles"
     t.text "m5_candles"

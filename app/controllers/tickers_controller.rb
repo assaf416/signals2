@@ -8,6 +8,10 @@ class TickersController < ApplicationController
 
   # GET /tickers/1 or /tickers/1.json
   def show
+    Ticker.eod_fundamentals_for_symbol(@ticker.symbol)
+    Ticker.yahoo_news_for_symbol(@ticker.symbol)
+    @fundamentals = JSON.parse $redis.hget("SIGNIALS-EOD-FUNDAMENTAL",@ticker.symbol)
+    @news = JSON.parse $redis.hget("SIGNALS-YAHOO-NEWS",@ticker.symbol)
   end
 
   # GET /tickers/new

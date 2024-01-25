@@ -13,6 +13,9 @@ class CreateTickers < ActiveRecord::Migration[7.0]
       t.float :bid_size
       t.float :ask_price
       t.float :bid_price
+      t.float :yield_1y
+      t.float :yield_5y
+      t.float :yield_10y
       t.string :sector
       t.string :industry
       t.float :market_cap
@@ -22,6 +25,7 @@ class CreateTickers < ActiveRecord::Migration[7.0]
       t.text :ticker_info
       t.text :info
       t.text :news
+      t.text :eod_fundamentals
       t.text :daily_candles
       t.text :m1_candles
       t.text :m5_candles
