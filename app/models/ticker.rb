@@ -59,8 +59,15 @@ class Ticker < ApplicationRecord
 
     def self.polygon_market_snapshot 
         res = HTTParty.get("https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers?apiKey=2uKb9PZGcqqcXhus3TNPaUQv52TOpY4D").body
-        res1 =  JSON.parse(res).to_hash
+        jres = JSON.parse(res)
+
+        list = jres["tickers"]
+        for t in list do 
+          $redis.hset("SIGNALS-POLYGON-QUOTES",t["ticker"],t.to_json)
+        end 
+        res1 =  jres.to_hash
         return res1["results"]
+
     end 
 
 
@@ -99,6 +106,9 @@ class Ticker < ApplicationRecord
           jres = JSON.parse(res)
           $redis.hset("SIGNIALS-EOD-FUNDAMENTAL",symbol,jres.to_json)
           ticker = Ticker.find_by_symbol(symbol)
+          ticker.name = jres["General"]["Name"]
+          ticker.kind = jres["General"]["Type"]
+          ticker.exchange = jres["General"]["Name"]
           ticker.exchange = jres["General"]["Exchange"]
           ticker.country = jres["General"]["CountryName"]
           ticker.sector = jres["General"]["Sector"]

@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+    Header
+  </div>
+  <div class="card-body">
+   <table class="table table-hover datatable">
+       <thead>
+         <tr>
+           <th>Symbol</th>
+           <th>Last Price</th>
+           <th>Change %</th>
+           <th>Change </th>
+           <th>Last Price at</th>
+         </tr>
+       </thead>
+       <tbody>
+        <% for t in @tickers do %>
+            <% next unless t[:last_price].to_f > 0%>
+         <tr>
+           <td><%= link_to t[:symbol], "/feed/ticker?s=#{t[:symbol]}" %></td>
+           <td><%=t[:last_price]%></td>
+           <td><%=t[:change_day_percents].to_f.round(2)%></td>
+           <td><%=t[:change_day].to_f.round(4)%></td>
+           <td><%=t[:last_traded_at]%></td>
+         </tr>
+         <% end %>
+       </tbody>
+     </table>
+   </div>
+  <div class="card-footer">
+    Footer
+  </div>
+</div>
+
+<script>
+     $('.datatable ').dataTable( {
+        columnDefs: [
+          { type: 'natural', targets: 0 }
+        ]
+     } );
+ 
+    </script>

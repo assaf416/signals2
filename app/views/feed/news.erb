@@ -1,0 +1,171 @@
+
+<div class="card">
+  <div class="card-header">
+    Header
+  </div>
+  <div class="card-body">
+    <table class="table datatable">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Auth</th>
+            <th>Channel</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for article in @articles do %>
+          <tr>
+            <td><b> <%= article.title %> </b> <br/> <%= simple_format article.message %></td>
+            <td><%= article.author %></td>
+            <td><%= article.channel %></td>
+            <td><%= article.published_at %></td>
+          </tr>
+          <% end %>
+      </table>
+   </div>
+  <div class="card-footer">
+    Footer
+  </div>
+</div>
+
+<div class="card card-body">
+  <h6 class="fw-semibold">
+    News and Feeds</h6>
+  <p class="mb-3"></p>
+
+  <ul class="nav nav-tabs mb-3" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        href="#js-dropdown-pill1"
+        class="nav-link active"
+        data-bs-toggle="tab"
+        aria-selected="true"
+        role="tab"
+      >
+       Unread News
+      </a>
+    </li>
+
+    <li class="nav-item" role="presentation">
+      <a
+        href="#js-dropdown-pill2"
+        class="nav-link"
+        data-bs-toggle="tab"
+        aria-selected="false"
+        tabindex="-1"
+        role="tab"
+      >
+        Starred
+      </a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        href="#js-dropdown-pill2"
+        class="nav-link"
+        data-bs-toggle="tab"
+        aria-selected="false"
+        tabindex="-1"
+        role="tab"
+      >
+        News Feed
+      </a>
+    </li>
+
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="js-dropdown-pill1" role="tabpanel">
+      This is some placeholder content the
+      <strong>first</strong>
+      tab's associated content
+    </div>
+
+    <div class="tab-pane fade" id="js-dropdown-pill2" role="tabpanel">
+      This is some placeholder content the
+      <strong>second</strong>
+      tab's associated content
+    </div>
+
+    <div class="tab-pane fade" id="js-dropdown-pill3" role="tabpanel">
+      This is some placeholder content the
+      <strong>third</strong>
+      tab's associated content
+    </div>
+
+    <div class="tab-pane fade" id="js-dropdown-pill4" role="tabpanel">
+      This is some placeholder content the
+      <strong>fourth</strong>
+      tab's associated content
+    </div>
+  </div>
+</div>
+
+
+
+<div class="csontent-inner" style="overflow:scroll; height:900px;">
+  <% for item in @news do %>
+    <div class="card">
+      <div class="card-body">
+        
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="card-img-actions mb-3">
+          <img
+            class="card-img img-fluid"
+            src="https://kinsta.com/wp-content/uploads/2018/12/facebook-statistics.png"
+            alt=""
+          >
+          <div class="card-img-actions-overlay card-img">
+            <a href="#" class="btn btn-outline-white btn-icon rounded-pill">
+              <i class="ph-link"></i>
+            </a>
+          </div>
+        </div>
+
+              </div>
+              <div class="col-lg-8">
+                <h5 class="card-title py-1 mb-3">
+          <a href="#" class="text-body"><%= item[:title] %></a>
+        </h5>
+
+        <%= item[:message] %>
+              </div>
+            </div>
+        
+      </div>
+
+      <div
+        class="
+          card-footer
+          d-sm-flex
+          justify-content-sm-between
+          align-items-sm-center
+        "
+      >
+        <ul class="list-inline list-inline-bullet text-muted mb-3 mb-sm-0">
+          <li class="list-inline-item">By
+            <a href="#" class="text-body">Eugene</a></li>
+          <li class="list-inline-item">July 5th, 2022</li>
+          <li class="list-inline-item"><a href="#" class="text-body">12 comments</a></li>
+        </ul>
+
+        <a href="#" class="d-inline-flex align-items-center text-body">
+          <i class="ph-heart text-pink me-2"></i>
+          281
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<script>
+     $('.datatable ').dataTable( {
+        columnDefs: [
+          { type: 'natural', targets: 0 }
+        ]
+     } );
+ 
+    </script>

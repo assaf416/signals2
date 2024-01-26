@@ -16,6 +16,7 @@ class CreateTickers < ActiveRecord::Migration[7.0]
       t.float :yield_1y
       t.float :yield_5y
       t.float :yield_10y
+      t.float :pe
       t.string :sector
       t.string :industry
       t.float :market_cap

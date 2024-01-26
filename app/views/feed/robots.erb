@@ -1,0 +1,80 @@
+<h1> Robots </h1><hr/>
+
+<div class="row">
+  <div class="col-lg-12">
+		<div class="card">
+		  <div class="card-header">
+			Header
+		  </div>
+		  <div class="card-body">
+			<h1> Screeners </h1><hr/>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Strategy </th>
+        <th>Number of Tests</th>
+        <th>Avg. Profit</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% for s in @robots do %>
+      <tr>
+        <td><%= s[:name]%></td>
+        <td><%= s[:backtests]%></td>
+        <td><%= s[:avg_profit]%></td>
+      </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+		   </div>
+		  <div class="card-footer">
+			Footer
+		  </div>
+		</div>
+  </div>
+</div>
+
+
+<div class="row">
+								<div class="col-sm-6">
+
+									<!-- Available hours -->
+									<div class="card text-center">
+										<div class="card-body">
+
+						                	<!-- Progress counter -->
+											<div class="svg-center" id="hours-available-progress"><div class="position-relative"><svg width="76" height="76"><g transform="translate(38,38)"><path class="d3-progress-background" d="M0,38A38,38 0 1,1 0,-38A38,38 0 1,1 0,38M0,36A36,36 0 1,0 0,-36A36,36 0 1,0 0,36Z" style="fill: rgb(240, 98, 146); opacity: 0.2;"></path><path class="d3-progress-foreground" filter="url(#blur)" d="M2.326828918379971e-15,-38A38,38 0 1,1 -34.38342799370878,16.179613079472677L-32.57377388877674,15.328054496342538A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(240, 98, 146); stroke: rgb(240, 98, 146);"></path><path class="d3-progress-front" d="M2.326828918379971e-15,-38A38,38 0 1,1 -34.38342799370878,16.179613079472677L-32.57377388877674,15.328054496342538A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(240, 98, 146); fill-opacity: 1;"></path></g></svg><i class="ph-check text-pink counter-icon"></i></div><h4 class="pt-1 mt-2 mb-0">68%</h4><div>Hours available</div><div class="fs-sm text-muted mb-3">64% average</div></div>
+											<!-- /progress counter -->
+
+
+											<!-- Bars -->
+											<div id="hours-available-bars"><svg width="119.5" height="40"><g width="119.5"><rect class="d3-random-bars" width="3.4423868312757198" x="1.4753086419753085" height="36" y="4" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="6.393004115226337" height="22" y="18" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="11.310699588477366" height="34" y="6" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="16.228395061728392" height="22" y="18" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="21.14609053497942" height="30" y="10" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="26.06378600823045" height="26" y="14" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="30.98148148148148" height="24" y="16" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="35.89917695473251" height="38" y="2" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="40.81687242798354" height="40" y="0" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="45.73456790123457" height="30" y="10" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="50.6522633744856" height="38" y="2" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="55.56995884773663" height="30" y="10" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="60.48765432098765" height="26" y="14" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="65.40534979423867" height="38" y="2" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="70.3230452674897" height="26" y="14" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="75.24074074074073" height="36" y="4" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="80.15843621399176" height="30" y="10" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="85.07613168724279" height="24" y="16" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="89.99382716049382" height="32" y="8" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="94.91152263374485" height="24" y="16" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="99.82921810699588" height="24" y="16" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="104.74691358024691" height="22" y="18" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="109.66460905349794" height="40" y="0" style="fill: rgb(236, 64, 122);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="114.58230452674897" height="28" y="12" style="fill: rgb(236, 64, 122);"></rect></g></svg></div>
+											<!-- /bars -->
+
+										</div>
+									</div>
+									<!-- /available hours -->
+
+								</div>
+
+								<div class="col-sm-6">
+
+									<!-- Productivity goal -->
+									<div class="card text-center">
+										<div class="card-body">
+
+											<!-- Progress counter -->
+											<div class="svg-center" id="goal-progress"><div class="position-relative"><svg width="76" height="76"><g transform="translate(38,38)"><path class="d3-progress-background" d="M0,38A38,38 0 1,1 0,-38A38,38 0 1,1 0,38M0,36A36,36 0 1,0 0,-36A36,36 0 1,0 0,36Z" style="fill: rgb(92, 107, 192); opacity: 0.2;"></path><path class="d3-progress-foreground" filter="url(#blur)" d="M2.326828918379971e-15,-38A38,38 0 1,1 -34.3834279937087,-16.179613079472855L-32.573773888776664,-15.328054496342704A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(92, 107, 192); stroke: rgb(92, 107, 192);"></path><path class="d3-progress-front" d="M2.326828918379971e-15,-38A38,38 0 1,1 -34.3834279937087,-16.179613079472855L-32.573773888776664,-15.328054496342704A36,36 0 1,0 2.204364238465236e-15,-36Z" style="fill: rgb(92, 107, 192); fill-opacity: 1;"></path></g></svg><i class="ph-trophy text-indigo counter-icon"></i></div><h4 class="pt-1 mt-2 mb-0">82%</h4><div>Productivity goal</div><div class="fs-sm text-muted mb-3">87% average</div></div>
+											<!-- /progress counter -->
+
+											<!-- Bars -->
+											<div id="goal-bars"><svg width="119.5" height="40"><g width="119.5"><rect class="d3-random-bars" width="3.4423868312757198" x="1.4753086419753085" height="40" y="0" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="6.393004115226337" height="26" y="14" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="11.310699588477366" height="28" y="12" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="16.228395061728392" height="22" y="18" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="21.14609053497942" height="36" y="4" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="26.06378600823045" height="24" y="16" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="30.98148148148148" height="30" y="10" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="35.89917695473251" height="36" y="4" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="40.81687242798354" height="24" y="16" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="45.73456790123457" height="32" y="8" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="50.6522633744856" height="26" y="14" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="55.56995884773663" height="28" y="12" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="60.48765432098765" height="24" y="16" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="65.40534979423867" height="20" y="20" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="70.3230452674897" height="30" y="10" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="75.24074074074073" height="38" y="2" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="80.15843621399176" height="22" y="18" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="85.07613168724279" height="36" y="4" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="89.99382716049382" height="32" y="8" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="94.91152263374485" height="24" y="16" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="99.82921810699588" height="32" y="8" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="104.74691358024691" height="32" y="8" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="109.66460905349794" height="24" y="16" style="fill: rgb(92, 107, 192);"></rect><rect class="d3-random-bars" width="3.4423868312757198" x="114.58230452674897" height="38" y="2" style="fill: rgb(92, 107, 192);"></rect></g></svg></div>
+											<!-- /bars -->
+
+										</div>
+									</div>
+									<!-- /productivity goal -->
+
+								</div>
+							</div>

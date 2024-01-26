@@ -49,14 +49,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "feed_id"
+    t.datetime "published_at"
+    t.string "channel"
     t.string "title"
+    t.string "link"
+    t.string "author"
     t.text "message"
+    t.string "image_url"
     t.string "guid"
     t.string "symbol"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author"], name: "index_articles_on_author"
+    t.index ["channel"], name: "index_articles_on_channel"
     t.index ["feed_id"], name: "index_articles_on_feed_id"
     t.index ["guid"], name: "index_articles_on_guid"
+    t.index ["link"], name: "index_articles_on_link"
     t.index ["symbol"], name: "index_articles_on_symbol"
     t.index ["title"], name: "index_articles_on_title"
   end
@@ -135,6 +143,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_172656) do
     t.float "bid_size"
     t.float "ask_price"
     t.float "bid_price"
+    t.float "yield_1y"
+    t.float "yield_5y"
+    t.float "yield_10y"
+    t.float "pe"
     t.string "sector"
     t.string "industry"
     t.float "market_cap"

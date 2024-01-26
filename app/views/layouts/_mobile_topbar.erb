@@ -17,10 +17,10 @@
           &nbsp; ראשי</a>
         <a href="/mobile/funds" class="dropdown-item">
           <i class="fa fa-bank"></i>
-          &nbsp; קרנות </a>
+          &nbsp; חדשות </a>
         <a href="/mobile/accounts" class="dropdown-item">
           <i class="fa fa-briefcase"></i>
-          &nbsp; חשבונות </a>
+          &nbsp; התראות </a>
 
         
         <a href="/users/1/logout" class="dropdown-item">
@@ -39,34 +39,6 @@
       id="navbar-mobile"
       style=""
     >
-      <ul class="nav gap-sm-2 order-1 order-lg-2 ms-auto">
-        <li class="nav-item">
-          <form action="." method="get">
-            <div class="input-icon">
-
-              <input
-                id="search"
-                type="text"
-                value=""
-                class="form-control"
-                placeholder="Search…"
-                aria-label="Search in website"
-              >
-            </div>
-          </form>
-
-          <script type="text/javascript">
-					$(document).ready(function() {
-					$('#search').keydown(function(e) {
-						if (e.which === 13) {
-							window.location = "/portal/search?q="+ $('#search').val();
-						return false;
-						}
-					});
-					});
-          </script>
-        </li>
-      </ul>
     </div>
 
     <ul class="nav gap-sm-2 sms-auto justify-content-end">
@@ -88,11 +60,6 @@
               me-1
             "
           >2</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="navbar-nav-link navbar-nav-link-icon rounded">
-          <i class="ph-chats"></i>
         </a>
       </li>
       <li class="nav-item nav-item-dropdown-lg dropdown ">
